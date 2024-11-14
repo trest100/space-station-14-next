@@ -4,7 +4,8 @@
   name: Bluespace Harvester board
   description: A machine board for a Bluespace Harvester
   components:
-    - type: Sprite
+  - type: Sprite
+      sprite: _CorvaxNext/Bluespace/module.rsi
       state: bluespace
     - type: MachineBoard
       prototype: BluespaceHarvester

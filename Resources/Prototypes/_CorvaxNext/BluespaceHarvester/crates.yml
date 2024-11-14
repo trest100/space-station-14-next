@@ -5,9 +5,9 @@
   components:
   - type: CargoSellBlacklist
   - type: Icon
-    sprite: Structures/Storage/Crates/Bluespace/industrial_secure.rsi
+    sprite: _CorvaxNext/Bluespace/Crates/industrial_secure.rsi
   - type: Sprite
-    sprite: Structures/Storage/Crates/Bluespace/industrial_secure.rsi
+    sprite: _CorvaxNext/Bluespace/Crates/industrial_secure.rsi
   - type: AccessReader
     access: [["Engineering"]]
 
@@ -18,9 +18,9 @@
   components:
   - type: CargoSellBlacklist
   - type: Icon
-    sprite: Structures/Storage/Crates/Bluespace/technological_secure.rsi
+    sprite: _CorvaxNext/Bluespace/Crates/technological_secure.rsi
   - type: Sprite
-    sprite: Structures/Storage/Crates/Bluespace/technological_secure.rsi
+    sprite: _CorvaxNext/Bluespace/Crates/technological_secure.rsi
   - type: AccessReader
     access: [["Research"]]
 
@@ -31,9 +31,9 @@
   components:
   - type: CargoSellBlacklist
   - type: Icon
-    sprite: Structures/Storage/Crates/Bluespace/biological_secure.rsi
+    sprite: _CorvaxNext/Bluespace/Crates/biological_secure.rsi
   - type: Sprite
-    sprite: Structures/Storage/Crates/Bluespace/biological_secure.rsi
+    sprite: _CorvaxNext/Bluespace/Crates/biological_secure.rsi
   - type: AccessReader
     access: [["Research"], ["Chemistry"]]
 
@@ -44,9 +44,9 @@
   components:
   - type: CargoSellBlacklist
   - type: Icon
-    sprite: Structures/Storage/Crates/Bluespace/destruction_secure.rsi
+    sprite: _CorvaxNext/Bluespace/Crates/destruction_secure.rsi
   - type: Sprite
-    sprite: Structures/Storage/Crates/Bluespace/destruction_secure.rsi
+    sprite: _CorvaxNext/Bluespace/Crates/destruction_secure.rsi
   - type: AccessReader
     access: [["Armory"]]
 
@@ -57,8 +57,8 @@
   components:
   - type: CargoSellBlacklist
   - type: Icon
-    sprite: Structures/Storage/Crates/Bluespace/limited_secure.rsi
+    sprite: _CorvaxNext/Bluespace/Crates/limited_secure.rsi
   - type: Sprite
-    sprite: Structures/Storage/Crates/Bluespace/limited_secure.rsi
+    sprite: _CorvaxNext/Bluespace/Crates/limited_secure.rsi
   - type: AccessReader
     access: [["Command"]]
