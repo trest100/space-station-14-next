@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     sprite: _CorvaxNext/Bluespace/module.rsi
-      state: bluespace
+    state: bluespace
   - type: MachineBoard
     prototype: BluespaceHarvester
     requirements:
