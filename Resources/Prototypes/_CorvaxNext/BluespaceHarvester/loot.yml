@@ -31,16 +31,6 @@
       amount: 7
 
 - type: entity
-  id: CrateHarvesterPartsT4
-  parent: CrateIndustrialSecure
-  suffix: Bluespace Harvester, PartsT4
-  components:
-  - type: BluespaceHarvesterBundle
-    contents:
-    - id: SalvagePartsT4Spawner
-      amount: 4
-
-- type: entity
   id: CrateHarvesterMaterials
   parent: CrateIndustrialSecure
   suffix: Bluespace Harvester, Materials
