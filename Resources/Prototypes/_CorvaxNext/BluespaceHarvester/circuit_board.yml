@@ -19,8 +19,7 @@
       CableHV: 5
     tagRequirements:
       GlassBeaker:
-        Amount: 5
-        DefaultPrototype: Beaker
-        ExamineName: Glass Beaker
+        amount: 2
+        defaultPrototype: Beaker
   - type: Item
     size: Normal
