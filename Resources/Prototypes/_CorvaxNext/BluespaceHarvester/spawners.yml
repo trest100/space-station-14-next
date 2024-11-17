@@ -8,22 +8,22 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Structures/Machines/bluespace_harvester.rsi
-        state: tap_5
+    - state: red
+    - sprite: _CorvaxNext/Bluespace/harvester.rsi
+      state: tap_5
   - type: RandomSpawner
     prototypes:
-      - CrateHarvesterWeaponLaser
-      - CrateHarvesterWeaponShotgun
-      - CrateHarvesterWeaponRifle
-      - CrateHarvesterWeaponLight
-      - CrateHarvesterWeaponDisabler
-      - CrateHarvesterBomb
+    - CrateHarvesterWeaponLaser
+    - CrateHarvesterWeaponShotgun
+    - CrateHarvesterWeaponRifle
+    - CrateHarvesterWeaponLight
+    - CrateHarvesterWeaponDisabler
+    - CrateHarvesterBomb
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - CrateHarvesterTurretSyndicate # Death
-      - CrateHarvesterWeaponElite
+    - CrateHarvesterTurretSyndicate # Death
+    - CrateHarvesterWeaponElite
     rareChance: 0.1
 
 - type: entity
@@ -35,25 +35,25 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Structures/Machines/bluespace_harvester.rsi
-        state: tap_5
+    - state: red
+    - sprite: Structures/Machines/bluespace_harvester.rsi
+      state: tap_5
   - type: RandomSpawner
     prototypes:
-      - CrateHarvesterPartsT3
-      - CrateHarvesterPartsT4
-      - CrateHarvesterMaterials
-      - CrateHarvesterPowerCell
-      - CrateHarvesterBeer
-      - CrateHarvesterTools
-      - RandomHarvesterBackpackHolding
-      - CrateHarvesterAmeJar
-      - CrateHarvesterCircuitboard
+    - CrateHarvesterPartsT3
+    - CrateHarvesterPartsT4
+    - CrateHarvesterMaterials
+    - CrateHarvesterPowerCell
+    - CrateHarvesterBeer
+    - CrateHarvesterTools
+    - RandomHarvesterBackpackHolding
+    - CrateHarvesterAmeJar
+    - CrateHarvesterCircuitboard
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - CrateHarvesterSingularity # Death
-      - CrateHarvesterSingularityFake
+    - CrateHarvesterSingularity # Death
+    - CrateHarvesterSingularityFake
     rareChance: 0.1
 
 - type: entity
@@ -65,24 +65,24 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Structures/Machines/bluespace_harvester.rsi
-        state: tap_5
+    - state: red
+    - sprite: Structures/Machines/bluespace_harvester.rsi
+      state: tap_5
   - type: RandomSpawner
     prototypes:
-      - CrateHarvesterAnomaly
-      - CrateHarvesterArtifact
-      - CrateHarvesterTechnologyDisk
-      - CrateHarvesterResearchDisk
-      - CrateHarvesterAnomalyKit
-      - CrateHarvesterEncryptionKey
-      - CrateHarvesterBorg
-      - CrateHarvesterMech
+    - CrateHarvesterAnomaly
+    - CrateHarvesterArtifact
+    - CrateHarvesterTechnologyDisk
+    - CrateHarvesterResearchDisk
+    - CrateHarvesterAnomalyKit
+    - CrateHarvesterEncryptionKey
+    - CrateHarvesterBorg
+    - CrateHarvesterMech
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - CrateHarvesterReagentSlime # Death
-      - BaseResearchAndDevelopmentPointSource
+    - CrateHarvesterReagentSlime # Death
+    - BaseResearchAndDevelopmentPointSource
     rareChance: 0.1
 
 - type: entity
@@ -94,18 +94,18 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Structures/Machines/bluespace_harvester.rsi
-        state: tap_5
+    - state: red
+    - sprite: _CorvaxNext/Bluespace/harvester.rsi
+      state: tap_5
   - type: RandomSpawner
     prototypes:
-      - CrateHarvesterImplanter
-      - CrateHarvesterInjection
-      - CrateHarvesterMedkit
-      - CrateHarvesterSeeds
+    - CrateHarvesterImplanter
+    - CrateHarvesterInjection
+    - CrateHarvesterMedkit
+    - CrateHarvesterSeeds
     rarePrototypes:
-      - CrateHarvesterRomerol # Death
-      - CrateHarvesterDoctorsDelight
+    - CrateHarvesterRomerol # Death
+    - CrateHarvesterDoctorsDelight
     chance: 1.0
     offset: 0.0
     rareChance: 0.1
@@ -120,27 +120,27 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Materials/Sheets/other.rsi
-        state: plasma_3
+    - state: red
+    - sprite: Objects/Materials/Sheets/other.rsi
+      state: plasma_3
   - type: RandomSpawner
     prototypes:
-      - SheetPlastic
-      - SheetSteel
-      - SheetPlasteel
-      - SheetGlass
-      - SheetRGlass
-      - SheetPGlass
-      - SheetRPGlass
+    - SheetPlastic
+    - SheetSteel
+    - SheetPlasteel
+    - SheetGlass
+    - SheetRGlass
+    - SheetPGlass
+    - SheetRPGlass
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - IngotSilver
-      - IngotGold
-      - SheetUranium
-      - SheetUGlass
-      - SheetRUGlass
-      - MaterialSheetMeat
+    - IngotSilver
+    - IngotGold
+    - SheetUranium
+    - SheetUGlass
+    - SheetRUGlass
+    - MaterialSheetMeat
     rareChance: 0.4
 
 - type: entity
@@ -152,18 +152,18 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Power/power_cells.rsi
-        state: hyper
+    - state: red
+    - sprite: Objects/Power/power_cells.rsi
+      state: hyper
   - type: RandomSpawner
     prototypes:
-      - PowerCellMediumPrinted
-      - PowerCellHigh
+    - PowerCellMediumPrinted
+    - PowerCellHigh
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - PowerCellAntiqueProto
-      - PowerCellHigh
+    - PowerCellAntiqueProto
+    - PowerCellHigh
     rareChance: 0.25
 
 - type: entity
@@ -175,16 +175,16 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Consumable/Drinks/beer.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Consumable/Drinks/beer.rsi
+      state: icon
   - type: RandomSpawner
     prototypes:
-      - DrinkBeerBottleFull
+    - DrinkBeerBottleFull
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - DrinkSingulo
+    - DrinkSingulo
     rareChance: 0.05
 
 - type: entity
@@ -196,19 +196,19 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Tools/drill.rsi
-        state: drill_screw
+    - state: red
+    - sprite: Objects/Tools/drill.rsi
+      state: drill_screw
   - type: RandomSpawner
     prototypes:
-      - WelderExperimental
-      - PowerDrill
-      - JawsOfLife
+    - WelderExperimental
+    - PowerDrill
+    - JawsOfLife
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - RCDRecharging
-      - AccessConfigurator
+    - RCDRecharging
+    - AccessConfigurator
     rareChance: 0.075
 
 - type: entity
@@ -220,19 +220,19 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Clothing/Back/Backpacks/holding.rsi
-        state: holding
+    - state: red
+    - sprite: Clothing/Back/Backpacks/holding.rsi
+      state: holding
   - type: RandomSpawner
     prototypes:
-      - ClothingBackpackSatchelHolding
-      - ClothingBackpackDuffelHolding
-      - ClothingBackpackHolding
+    - ClothingBackpackSatchelHolding
+    - ClothingBackpackDuffelHolding
+    - ClothingBackpackHolding
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - ClosetBluespace
-      - ClosetBluespaceUnstable
+    - ClosetBluespace
+    - ClosetBluespaceUnstable
     rareChance: 0.3
 
 - type: entity
@@ -244,27 +244,27 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Misc/module.rsi
-        state: cpuboard
+    - state: red
+    - sprite: Objects/Misc/module.rsi
+      state: cpuboard
   - type: RandomSpawner
     prototypes:
-      - SecurityTechFabCircuitboard
-      - MedicalTechFabCircuitboard
-      - TelecomServerCircuitboard
-      - AmmoTechFabCircuitboard
-      - CargoBountyComputerCircuitboard
-      - CargoRequestComputerCircuitboard
+    - SecurityTechFabCircuitboard
+    - MedicalTechFabCircuitboard
+    - TelecomServerCircuitboard
+    - AmmoTechFabCircuitboard
+    - CargoBountyComputerCircuitboard
+    - CargoRequestComputerCircuitboard
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - ResearchAndDevelopmentServerMachineCircuitboard
-      - IDComputerCircuitboard
-      - CommsComputerCircuitboard
-      - BodyScannerComputerCircuitboard
-      - CloningConsoleComputerCircuitboard
-      - CloningPodMachineCircuitboard
-      - CargoShuttleComputerCircuitboard
+    - ResearchAndDevelopmentServerMachineCircuitboard
+    - IDComputerCircuitboard
+    - CommsComputerCircuitboard
+    - BodyScannerComputerCircuitboard
+    - CloningConsoleComputerCircuitboard
+    - CloningPodMachineCircuitboard
+    - CargoShuttleComputerCircuitboard
     rareChance: 0.2
 
 # Technological
@@ -277,16 +277,16 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Misc/module.rsi
-        state: datadisk5
+    - state: red
+    - sprite: Objects/Misc/module.rsi
+      state: datadisk5
   - type: RandomSpawner
     prototypes:
-      - TechnologyDisk
+    - TechnologyDisk
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - TechnologyDiskRare
+    - TechnologyDiskRare
     rareChance: 0.3
 
 - type: entity
@@ -298,16 +298,16 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Specific/Research/researchdisk.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Specific/Research/researchdisk.rsi
+      state: icon
   - type: RandomSpawner
     prototypes:
-      - ResearchDisk5000
+    - ResearchDisk5000
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - ResearchDisk10000
+    - ResearchDisk10000
     rareChance: 0.3
 
 - type: entity
@@ -319,19 +319,19 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
-        state: base
+    - state: red
+    - sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
+      state: base
   - type: RandomSpawner
     prototypes:
-      - AnomalyScanner
-      - WeaponPistolCHIMP
-      - AnomalyLocator
-      - AnomalyLocatorWide
+    - AnomalyScanner
+    - WeaponPistolCHIMP
+    - AnomalyLocator
+    - AnomalyLocatorWide
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - WeaponPistolCHIMPUpgraded
+    - WeaponPistolCHIMPUpgraded
     rareChance: 0.3
 
 - type: entity
@@ -343,27 +343,27 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Devices/encryption_keys.rsi
-        state: crypt_gold
+    - state: red
+    - sprite: Objects/Devices/encryption_keys.rsi
+      state: crypt_gold
   - type: RandomSpawner
     prototypes:
-      - BoxEncryptionKeyService
-      - BoxEncryptionKeySecurity
-      - BoxEncryptionKeyScience
-      - BoxEncryptionKeyRobo
-      - BoxEncryptionKeyPassenger
-      - BoxEncryptionKeyMedical
-      - BoxEncryptionKeyMedicalScience
-      - BoxEncryptionKeyEngineering
-      - BoxEncryptionKeyCargo
+    - BoxEncryptionKeyService
+    - BoxEncryptionKeySecurity
+    - BoxEncryptionKeyScience
+    - BoxEncryptionKeyRobo
+    - BoxEncryptionKeyPassenger
+    - BoxEncryptionKeyMedical
+    - BoxEncryptionKeyMedicalScience
+    - BoxEncryptionKeyEngineering
+    - BoxEncryptionKeyCargo
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - EncryptionKeyStationMaster
-      - EncryptionKeyCentCom
-      - EncryptionKeySyndie
-      - EncryptionKeyBinary
+    - EncryptionKeyStationMaster
+    - EncryptionKeyCentCom
+    - EncryptionKeySyndie
+    - EncryptionKeyBinary
     rareChance: 0.05
 
 - type: entity
@@ -375,16 +375,16 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Mobs/Silicon/chassis.rsi
-        state: engineer
+    - state: red
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: engineer
   - type: RandomSpawner
     prototypes:
-      - BorgChassisMining
-      - BorgChassisEngineer
-      - BorgChassisJanitor
-      - BorgChassisService
-      - BorgChassisMedical
+    - BorgChassisMining
+    - BorgChassisEngineer
+    - BorgChassisJanitor
+    - BorgChassisService
+    - BorgChassisMedical
     chance: 1.0
     offset: 0.0
 
@@ -397,14 +397,14 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Specific/Mech/mecha.rsi
-        state: ripley-open
+    - state: red
+    - sprite: Objects/Specific/Mech/mecha.rsi
+      state: ripley-open
   - type: RandomSpawner
     prototypes:
-      - MechHamtrBattery
-      - MechHonkerBattery
-      - MechRipley
+    - MechHamtrBattery
+    - MechHonkerBattery
+    - MechRipley
     chance: 1.0
     offset: 0.0
 
@@ -418,18 +418,18 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Specific/Chemistry/syringe.rsi
-        state: syringe_base0
+    - state: red
+    - sprite: Objects/Specific/Chemistry/syringe.rsi
+      state: syringe_base0
   - type: RandomSpawner
     prototypes:
-      - BluespaceBeaker
-      - SyringeBluespace
+    - BluespaceBeaker
+    - SyringeBluespace
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - Hypospray
-      - HypopenBox
+    - Hypospray
+    - HypopenBox
     rareChance: 0.02
 
 - type: entity
@@ -441,27 +441,27 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Specific/Medical/implanter.rsi
-        state: implanter0
+    - state: red
+    - sprite: Objects/Specific/Medical/implanter.rsi
+      state: implanter0
   - type: RandomSpawner
     prototypes:
-      - BikeHornImplanter
-      - LightImplanter
-      - MindShieldImplanter
-      - SadTromboneImplanter
-      - TrackingImplanter
+    - BikeHornImplanter
+    - LightImplanter
+    - MindShieldImplanter
+    - SadTromboneImplanter
+    - TrackingImplanter
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - MacroBombImplanter
-      - MicroBombImplanter
-      - StorageImplanter
-      - EmpImplanter
-      - FreedomImplanter
-      - DeathRattleImplanter
-      - UplinkImplanter
-      - DnaScramblerImplanter
+    - MacroBombImplanter
+    - MicroBombImplanter
+    - StorageImplanter
+    - EmpImplanter
+    - FreedomImplanter
+    - DeathRattleImplanter
+    - UplinkImplanter
+    - DnaScramblerImplanter
     rareChance: 0.01
 
 - type: entity
@@ -473,22 +473,22 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Specific/Medical/firstaidkits.rsi
-        state: blackkit
+    - state: red
+    - sprite: Objects/Specific/Medical/firstaidkits.rsi
+      state: blackkit
   - type: RandomSpawner
     prototypes:
-      - MedkitOxygenFilled
-      - MedkitAdvancedFilled
-      - MedkitBruteFilled
-      - MedkitBurnFilled
-      - MedkitRadiationFilled
-      - MedkitToxinFilled
-      - MedkitCombatFilled
+    - MedkitOxygenFilled
+    - MedkitAdvancedFilled
+    - MedkitBruteFilled
+    - MedkitBurnFilled
+    - MedkitRadiationFilled
+    - MedkitToxinFilled
+    - MedkitCombatFilled
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - StimkitFilled
+    - StimkitFilled
     rareChance: 0.01
 
 - type: entity
@@ -500,17 +500,17 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Specific/Hydroponics/blood_tomato.rsi
-        state: seed
+    - state: red
+    - sprite: Objects/Specific/Hydroponics/blood_tomato.rsi
+      state: seed
   - type: RandomSpawner
     prototypes:
-      - CrateHydroponicsSeeds
+    - CrateHydroponicsSeeds
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - CrateHydroponicsSeedsExotic
-      - CrateHydroponicsSeedsMedicinal
+    - CrateHydroponicsSeedsExotic
+    - CrateHydroponicsSeedsMedicinal
     rareChance: 0.5
 
 - type: entity
@@ -522,16 +522,16 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Consumable/Drinks/doctorsdelightglass.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Consumable/Drinks/doctorsdelightglass.rsi
+      state: icon
   - type: RandomSpawner
     prototypes:
-      - DrinkDoctorsDelightGlass
+    - DrinkDoctorsDelightGlass
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - OmnizineChemistryBottle
+    - OmnizineChemistryBottle
     rareChance: 0.2
 
 # Destruction Loot
@@ -544,20 +544,20 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
   - type: RandomSpawner
     prototypes:
-      - WeaponLaserCarbine
-      - WeaponLaserCannon
-      - WeaponMakeshiftLaser
-      - WeaponLaserGun
-      - WeaponXrayCannon
+    - WeaponLaserCarbine
+    - WeaponLaserCannon
+    - WeaponMakeshiftLaser
+    - WeaponLaserGun
+    - WeaponXrayCannon
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - WeaponAdvancedLaser
+    - WeaponAdvancedLaser
     rareChance: 0.2
 
 - type: entity
@@ -569,19 +569,19 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
   - type: RandomSpawner
     prototypes:
-      - WeaponShotgunEnforcer
-      - WeaponShotgunKammerer
-      - WeaponShotgunDoubleBarreled
-      - WeaponShotgunSawn
+    - WeaponShotgunEnforcer
+    - WeaponShotgunKammerer
+    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunSawn
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - WeaponShotgunBulldog
+    - WeaponShotgunBulldog
     rareChance: 0.05
 
 - type: entity
@@ -593,19 +593,19 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
   - type: RandomSpawner
     prototypes:
-      - WeaponRifleLecter
-      - WeaponSubMachineGunWt550
-      - WeaponRifleAk
-      - WeaponSubMachineGunDrozd
+    - WeaponRifleLecter
+    - WeaponSubMachineGunWt550
+    - WeaponRifleAk
+    - WeaponSubMachineGunDrozd
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - WeaponSubMachineGunC20r
+    - WeaponSubMachineGunC20r
     rareChance: 0.05
 
 - type: entity
@@ -617,21 +617,21 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
   - type: RandomSpawner
     prototypes:
-      - WeaponRevolverInspector
-      - WeaponRevolverMateba
-      - WeaponPistolMk58
+    - WeaponRevolverInspector
+    - WeaponRevolverMateba
+    - WeaponPistolMk58
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - WeaponRevolverDeckard
-      - WeaponRevolverPython
-      - WeaponPistolCobra
-      - WeaponPistolViper
+    - WeaponRevolverDeckard
+    - WeaponRevolverPython
+    - WeaponPistolCobra
+    - WeaponPistolViper
     rareChance: 0.05
 
 - type: entity
@@ -643,17 +643,17 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
   - type: RandomSpawner
     prototypes:
-      - Stunbaton
-      - WeaponDisabler
+    - Stunbaton
+    - WeaponDisabler
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - WeaponTaser
+    - WeaponTaser
     rareChance: 0.2
 
 - type: entity
@@ -665,21 +665,21 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
   - type: RandomSpawner
     prototypes:
-      - WeaponPulseRifle
-      - WeaponPulsePistol
-      - WeaponLightMachineGunL6
-      - WeaponSniperHristov
+    - WeaponPulseRifle
+    - WeaponPulsePistol
+    - WeaponLightMachineGunL6
+    - WeaponSniperHristov
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - WeaponPulseCarbine
-      - WeaponMinigun
-      - WeaponLauncherMultipleRocket
+    - WeaponPulseCarbine
+    - WeaponMinigun
+    - WeaponLauncherMultipleRocket
     rareChance: 0.2
 
 - type: entity
@@ -691,20 +691,20 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-        state: icon
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
   - type: RandomSpawner
     prototypes:
-      - ExGrenade
-      - GrenadeFlashBang
-      - TrainingBomb
+    - ExGrenade
+    - GrenadeFlashBang
+    - TrainingBomb
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-      - SyndicateBomb
-      - SyndieMiniBomb
-      - HolyHandGrenade
-      - C4
-      - EmpGrenade
+    - SyndicateBomb
+    - SyndieMiniBomb
+    - HolyHandGrenade
+    - C4
+    - EmpGrenade
     rareChance: 0.05

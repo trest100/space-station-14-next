@@ -10,8 +10,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeAabb
+        shape: !type:PhysShapeAabb
           bounds: "-1.5,-1.5,1.5,1.5"
         density: 50
         mask:
@@ -19,13 +18,13 @@
         layer:
         - WallLayer
   - type: Sprite
-    sprite:  _CorvaxNext/Bluespace/harvester.rsi
+    sprite: _CorvaxNext/Bluespace/harvester.rsi
     snapCardinals: true
     layers:
     - state: tap_0
-      map: ["base"]
+      map: [ "base" ]
     - state: south_effect
-      map: ["effects"]
+      map: [ "effects" ]
       visible: false
       shader: unshaded
   - type: GenericVisualizer
@@ -45,25 +44,23 @@
           False: { visible: false }
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 350 # We don't need to break it
       behaviors:
       - !type:DoActsBehavior
-        acts: ["Destruction"]
+        acts: [ "Destruction" ]
   - type: ActivatableUI
     key: enum.BluespaceHarvesterUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.BluespaceHarvesterUiKey.Key
-      type: BluespaceHarvesterBoundUserInterface
+      enum.BluespaceHarvesterUiKey.Key:
+        type: BluespaceHarvesterBoundUserInterface
   - type: Machine
     board: MachineBluespaceHarvesterCircuitboard
   - type: NodeContainer
     examinable: true
     nodes:
-      input:
-        !type:CableDeviceNode
+      input: !type:CableDeviceNode
         nodeGroupID: HVPower
   - type: PowerConsumer
     voltage: High
@@ -78,6 +75,6 @@
     energy: 0.5
     castShadows: false
   - type: AccessReader
-    access: [["Engineering"], ["Research"], ["Command"]]
+    access: [ [ "Engineering" ], [ "Research" ], [ "Command" ] ]
   - type: GuideHelp
     guides: [ Power ] # TODO: Add BH guide
