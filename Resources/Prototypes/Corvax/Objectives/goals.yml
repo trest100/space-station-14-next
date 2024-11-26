@@ -93,5 +93,5 @@
   text: station-goal-astra-repair
 
 - type: stationGoal # Corvax-Next
-  id: BluespaceHarvester
+  id: BluespaceHarvest
   text: station-goal-bluespace-harvest
