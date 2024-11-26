@@ -36,7 +36,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Structures/Machines/bluespace_harvester.rsi
+    - sprite: _CorvaxNext/Bluespace/harvester.rsi
       state: tap_5
   - type: RandomSpawner
     prototypes:
@@ -66,7 +66,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Structures/Machines/bluespace_harvester.rsi
+    - sprite: _CorvaxNext/Bluespace/harvester.rsi
       state: tap_5
   - type: RandomSpawner
     prototypes:
