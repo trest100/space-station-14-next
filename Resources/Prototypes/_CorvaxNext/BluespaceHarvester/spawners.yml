@@ -4,7 +4,7 @@
   name: random harvester biological loot spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -31,7 +31,7 @@
   name: random harvester industrial loot spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -40,8 +40,6 @@
       state: tap_5
   - type: RandomSpawner
     prototypes:
-    - CrateHarvesterPartsT3
-    - CrateHarvesterPartsT4
     - CrateHarvesterMaterials
     - CrateHarvesterPowerCell
     - CrateHarvesterBeer
@@ -61,7 +59,7 @@
   name: random harvester technological loot spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -90,7 +88,7 @@
   name: random harvester biological loot spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -116,7 +114,7 @@
   name: random harvester materials spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -148,7 +146,7 @@
   name: random harvester power cell spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -171,7 +169,7 @@
   name: random harvester beer spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -192,7 +190,7 @@
   name: random harvester tools spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -216,7 +214,7 @@
   name: random harvester backpack holding spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -240,7 +238,7 @@
   name: random harvester circuitboard spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -273,7 +271,7 @@
   name: random harvester technology disk spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -294,7 +292,7 @@
   name: random harvester research disk spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -315,7 +313,7 @@
   name: random harvester anomaly kit spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -339,7 +337,7 @@
   name: random harvester encryption key spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -371,7 +369,7 @@
   name: random harvester borg spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -393,7 +391,7 @@
   name: random harvester mech spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -414,7 +412,7 @@
   name: random harvester injection spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -437,7 +435,7 @@
   name: random harvester implanter spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -469,7 +467,7 @@
   name: random harvester medkit spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -496,7 +494,7 @@
   name: random harvester seeds spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -518,7 +516,7 @@
   name: random harvester doctors delight spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -540,7 +538,7 @@
   name: random harvester weapon laser spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -565,7 +563,7 @@
   name: random harvester weapon Shotgun spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -589,7 +587,7 @@
   name: random harvester weapon rifle spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -613,7 +611,7 @@
   name: random harvester weapon light spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -639,7 +637,7 @@
   name: random harvester weapon disabler spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -661,7 +659,7 @@
   name: random harvester weapon elite spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -687,7 +685,7 @@
   name: random harvester bomb spawner
   suffix: Bluespace Harvester, DO NOT MAP
   parent: MarkerBase
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
