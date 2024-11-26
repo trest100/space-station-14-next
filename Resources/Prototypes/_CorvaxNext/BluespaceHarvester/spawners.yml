@@ -279,7 +279,7 @@
     layers:
     - state: red
     - sprite: Objects/Misc/module.rsi
-      state: datadisk5
+      state: datadisk_label
   - type: RandomSpawner
     prototypes:
     - TechnologyDisk
