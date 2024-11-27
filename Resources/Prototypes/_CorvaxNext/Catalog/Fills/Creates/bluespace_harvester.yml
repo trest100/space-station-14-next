@@ -181,6 +181,15 @@
     - id: ReagentSlimeSpawner
       amount: 16
 
+- type: entity
+  id: CrateHarvesterReagentPointSource
+  parent: CrateLimitedSecure
+  suffix: Bluespace Harvester, PointSource
+  components:
+  - type: BluespaceHarvesterBundle
+    contents:
+    - id: BaseResearchAndDevelopmentPointSource
+
 # Biological Loot
 - type: entity
   id: CrateHarvesterInjection
