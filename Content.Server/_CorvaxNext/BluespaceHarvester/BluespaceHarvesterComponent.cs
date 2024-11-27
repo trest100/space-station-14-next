@@ -1,3 +1,4 @@
+using Content.Server.Power.Pow3r;
 using Content.Shared._CorvaxNext.BluespaceHarvester;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -146,6 +147,9 @@ public sealed partial class BluespaceHarvesterComponent : Component
 
     [DataField]
     public SoundSpecifier SpawnSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
+
+    public float ReceivedPower = 0;
+    public float DrawRate = 0;
 }
 
 [Serializable]

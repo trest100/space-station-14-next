@@ -54,17 +54,10 @@
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
-        damage: 1250
+        damage: 350 # We don't need to break it
       behaviors:
-      - !type:ExplodeBehavior
       - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: Explosive
-    explosionType: Cryo
-    deleteAfterExplosion: false
-    totalIntensity: 1000
-    intensitySlope: 1
-    maxIntensity: 10
+        acts: [ "Destruction" ]
   - type: ActivatableUI
     key: enum.BluespaceHarvesterUiKey.Key
   - type: UserInterface
@@ -73,13 +66,8 @@
         type: BluespaceHarvesterBoundUserInterface
   - type: Machine
     board: MachineBluespaceHarvesterCircuitboard
-  - type: NodeContainer
-    examinable: true
-    nodes:
-      input: !type:CableDeviceNode
-        nodeGroupID: HVPower
-  - type: PowerConsumer
-    voltage: High
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
   - type: AmbientSound
     enabled: false
     volume: -1
