@@ -521,6 +521,7 @@
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
       - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
+      - MachineBluespaceHarvesterCircuitboard # Corvax-Next-BluespaceHarvester
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard

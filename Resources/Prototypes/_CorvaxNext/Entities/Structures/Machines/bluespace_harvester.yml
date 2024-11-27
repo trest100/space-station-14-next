@@ -3,9 +3,18 @@
   parent: [ BaseMachine, ConstructibleMachine ]
   name: bluespace harvester
   description: Uses huge amounts of energy to extract matter from all corners of the universe.
+  placement:
+    mode: AlignTileAny
   components:
+  - type: StationAiWhitelist
   - type: BluespaceHarvester
   - type: Appearance
+  - type: Construction
+    graph: MachineUnassemble
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
   - type: Physics
   - type: Fixtures
     fixtures:

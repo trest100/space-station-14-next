@@ -1,4 +1,5 @@
 - type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
   id: MachineBluespaceHarvesterCircuitboard
   result: MachineBluespaceHarvesterCircuitboard
   completetime: 10
