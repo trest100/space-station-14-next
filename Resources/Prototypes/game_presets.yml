@@ -227,7 +227,7 @@
   - meteombies
   name: zombieteors-title
   description: zombieteors-description
-  showInVote: true
+  showInVote: true # Corvax-Next-Democracy
   rules:
   - Zombie
   - BasicStationEventScheduler
