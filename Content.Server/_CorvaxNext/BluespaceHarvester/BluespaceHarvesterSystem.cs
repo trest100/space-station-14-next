@@ -1,25 +1,22 @@
-using Content.Server.NodeContainer;
-using Content.Server.NodeContainer.EntitySystems;
-using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
-using Content.Server.Power.NodeGroups;
 using Content.Shared.Audio;
 using Content.Shared._CorvaxNext.BluespaceHarvester;
 using Content.Shared.Destructible;
 using Content.Shared.Emag.Components;
-using Microsoft.CodeAnalysis;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.Power.EntitySystems;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server._CorvaxNext.BluespaceHarvester;
 
 public sealed class BluespaceHarvesterSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
@@ -27,15 +24,15 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
 
-    public List<BluespaceHarvesterTap> Taps = new List<BluespaceHarvesterTap>()
-    {
-        new BluespaceHarvesterTap() { Level = 0, Visual = BluespaceHarvesterVisuals.Tap0 },
-        new BluespaceHarvesterTap() { Level = 1, Visual = BluespaceHarvesterVisuals.Tap1 },
-        new BluespaceHarvesterTap() { Level = 5, Visual = BluespaceHarvesterVisuals.Tap2 },
-        new BluespaceHarvesterTap() { Level = 10, Visual = BluespaceHarvesterVisuals.Tap3 },
-        new BluespaceHarvesterTap() { Level = 15, Visual = BluespaceHarvesterVisuals.Tap4 },
-        new BluespaceHarvesterTap() { Level = 20, Visual = BluespaceHarvesterVisuals.Tap5 },
-    };
+    public List<BluespaceHarvesterTap> Taps =
+    [
+        new BluespaceHarvesterTap { Level = 0, Visual = BluespaceHarvesterVisuals.Tap0 },
+        new BluespaceHarvesterTap { Level = 1, Visual = BluespaceHarvesterVisuals.Tap1 },
+        new BluespaceHarvesterTap { Level = 5, Visual = BluespaceHarvesterVisuals.Tap2 },
+        new BluespaceHarvesterTap { Level = 10, Visual = BluespaceHarvesterVisuals.Tap3 },
+        new BluespaceHarvesterTap { Level = 15, Visual = BluespaceHarvesterVisuals.Tap4 },
+        new BluespaceHarvesterTap { Level = 20, Visual = BluespaceHarvesterVisuals.Tap5 },
+    ];
 
     private float _updateTimer;
     private const float UpdateTime = 1.0f;
@@ -44,9 +41,16 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BluespaceHarvesterComponent, PowerConsumerReceivedChanged>(ReceivedChanged);
         SubscribeLocalEvent<BluespaceHarvesterComponent, BluespaceHarvesterTargetLevelMessage>(OnTargetLevel);
         SubscribeLocalEvent<BluespaceHarvesterComponent, BluespaceHarvesterBuyMessage>(OnBuy);
         SubscribeLocalEvent<BluespaceHarvesterComponent, DestructionEventArgs>(OnDestruction);
+    }
+
+    private void ReceivedChanged(Entity<BluespaceHarvesterComponent> ent, ref PowerConsumerReceivedChanged args)
+    {
+        ent.Comp.ReceivedPower = args.ReceivedPower;
+        ent.Comp.DrawRate = args.DrawRate;
     }
 
     public override void Update(float frameTime)
@@ -72,8 +76,18 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
             // The HV wires cannot transmit a lot of electricity so quickly,
             // which is why it will not start.
             // So this is simply using the amount of free electricity in the network.
-            var supplier = GetPowerSupplier(uid, harvester);
-            if (supplier < GetUsagePower(harvester.CurrentLevel) && harvester.CurrentLevel != 0)
+            if (harvester.ResetTime == TimeSpan.Zero)
+            {
+                if (harvester.ReceivedPower < harvester.DrawRate && harvester.CurrentLevel != 0)
+                    harvester.ResetTime = _timing.CurTime;
+            }
+            else
+            {
+                if (harvester.ReceivedPower >= harvester.DrawRate)
+                    harvester.ResetTime = TimeSpan.Zero;
+            }
+
+            if (harvester.ResetTime <= _timing.CurTime && harvester.ResetTime != TimeSpan.Zero)
             {
                 // If there is insufficient production,
                 // it will reset itself (turn off) and you will need to start it again,
@@ -125,11 +139,10 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
     private void OnTargetLevel(Entity<BluespaceHarvesterComponent> harvester, ref BluespaceHarvesterTargetLevelMessage args)
     {
         // If we switch off, we don't need to be switched on.
-        if (!harvester.Comp.Reseted && harvester.Comp.CurrentLevel != 0)
+        if (!harvester.Comp.Reseted)
             return;
 
         harvester.Comp.TargetLevel = args.TargetLevel;
-        harvester.Comp.Reseted = true; // We start only after manual switching on.
         UpdateUI(harvester.Owner, harvester.Comp);
     }
 
@@ -184,13 +197,14 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
         if (!Resolve(uid, ref harvester))
             return;
 
-        _ui.SetUiState(uid, BluespaceHarvesterUiKey.Key, new BluespaceHarvesterBoundUserInterfaceState(
+        _ui.SetUiState(uid,
+            BluespaceHarvesterUiKey.Key,
+            new BluespaceHarvesterBoundUserInterfaceState(
             harvester.TargetLevel,
             harvester.CurrentLevel,
             harvester.MaxLevel,
             GetUsagePower(harvester.CurrentLevel),
             GetUsageNextPower(harvester.CurrentLevel),
-            GetPowerSupplier(uid, harvester),
             harvester.Points,
             harvester.TotalPoints,
             GetPointGeneration(uid, harvester),
@@ -265,7 +279,7 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
         if (!Resolve(uid, ref harvester))
             return 0;
 
-        return harvester.CurrentLevel * 4 * (Emagged(uid) ? 2 : 1);
+        return harvester.CurrentLevel * 4 * (Emagged(uid) ? 2 : 1) + (harvester.ResetTime == TimeSpan.Zero ? 1 : 0);
     }
 
     private int GetDangerPointGeneration(EntityUid uid, BluespaceHarvesterComponent? harvester = null)
@@ -300,51 +314,6 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
         return Emagged(uid) ? harvester.EmaggedStableLevel : harvester.StableLevel;
     }
 
-    /// <summary>
-    /// Receives information about all consumers and generators, subtracts and returns the amount of excess energy in the network.
-    /// </summary>
-    private float GetPowerSupplier(EntityUid uid, BluespaceHarvesterComponent? harvester = null, NodeContainerComponent? nodeComp = null)
-    {
-        if (!Resolve(uid, ref harvester, ref nodeComp))
-            return 0;
-
-        if (!_nodeContainer.TryGetNode<Node>(nodeComp, "input", out var node))
-            return 0;
-
-        if (node.NodeGroup is not PowerNet netQ)
-            return 0;
-
-        var totalSources = 0.0f;
-        foreach (var psc in netQ.Suppliers)
-        {
-            totalSources += psc.Enabled ? psc.MaxSupply : 0f;
-        }
-
-        foreach (var pcc in netQ.Dischargers)
-        {
-            if (!TryComp(pcc.Owner, out PowerNetworkBatteryComponent? batteryComp))
-                continue;
-
-            totalSources += batteryComp.NetworkBattery.CurrentSupply;
-        }
-
-        var totalConsumer = 0.0f;
-        foreach (var pcc in netQ.Consumers)
-        {
-            totalConsumer += pcc.DrawRate;
-        }
-
-        foreach (var pcc in netQ.Chargers)
-        {
-            if (!TryComp(pcc.Owner, out PowerNetworkBatteryComponent? batteryComp))
-                continue;
-
-            totalConsumer += batteryComp.NetworkBattery.CurrentReceiving;
-        }
-
-        return totalSources - totalConsumer;
-    }
-
     private bool TryGetCategory(EntityUid uid, BluespaceHarvesterCategory target, [NotNullWhen(true)] out BluespaceHarvesterCategoryInfo? info, BluespaceHarvesterComponent? harvester = null)
     {
         info = null;
@@ -369,7 +338,7 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
             return;
 
         harvester.Danger += harvester.DangerFromReset;
-        harvester.Reseted = true;
+        harvester.Reseted = false;
         harvester.TargetLevel = 0;
     }
 

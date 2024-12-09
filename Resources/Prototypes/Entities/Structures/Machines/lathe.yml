@@ -535,6 +535,7 @@
       - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
       # Corvax-Next-BluespaceHarvester-Start
       - MachineBluespaceHarvesterCircuitboard
+      - MachineBluespaceTransitorCircuitboard
       # Corvax-Next-BluespaceHarvester-End
       # Corvax-Next-MutableLaws-Start
       - AsimovCircuitBoard
