@@ -9,6 +9,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Power.EntitySystems;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Server._CorvaxNext.BluespaceHarvester;
@@ -56,19 +57,36 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
 
     private void OnStartup(Entity<BluespaceHarvesterComponent> ent, ref ComponentStartup args)
     {
-        var query = EntityQueryEnumerator<BluespaceHarvesterComponent>();
-        while (query.MoveNext(out _, out var harvester))
-        {
-            harvester.Harvesters++;
-        }
+        UpdateCount();
     }
 
     private void OnRemove(Entity<BluespaceHarvesterComponent> ent, ref ComponentRemove args)
     {
+        UpdateCount();
+    }
+
+    private void UpdateCount()
+    {
+        var dictionary = new Dictionary<MapId, List<EntityUid>>();
+
         var query = EntityQueryEnumerator<BluespaceHarvesterComponent>();
-        while (query.MoveNext(out _, out var harvester))
+        while (query.MoveNext(out var entityUid, out _))
         {
-            harvester.Harvesters--;
+            var mapId = Transform(entityUid).MapID;
+            if (!dictionary.TryGetValue(mapId, out var list))
+            {
+                dictionary[mapId] = [];
+                list = dictionary[mapId];
+            }
+
+            list.Add(entityUid);
+        }
+
+        query = EntityQueryEnumerator<BluespaceHarvesterComponent>();
+        while (query.MoveNext(out var entityUid, out var harvester))
+        {
+            var mapId = Transform(entityUid).MapID;
+            harvester.Harvesters = dictionary[mapId].Count;
         }
     }
 
