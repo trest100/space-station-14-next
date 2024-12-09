@@ -109,6 +109,9 @@ public sealed partial class BluespaceHarvesterComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float EmaggedRiftChance = 0.03f;
 
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int Harvesters;
+
     [DataField]
     public List<BluespaceHarvesterCategoryInfo> Categories = new()
     {
