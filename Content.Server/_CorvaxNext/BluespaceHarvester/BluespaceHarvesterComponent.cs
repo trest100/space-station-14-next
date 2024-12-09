@@ -14,7 +14,7 @@ public sealed partial class BluespaceHarvesterComponent : Component
     /// Responsible for forcibly turning off the harvester and blocking input level.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool Reseted;
+    public bool Reset;
 
     /// <summary>
     /// The current level at which the harvester is located is what other parameters are calculated from.
