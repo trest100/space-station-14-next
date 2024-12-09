@@ -71,7 +71,6 @@
     maxIntensity: 2500
   - type: ActivatableUI
     key: enum.BluespaceHarvesterUiKey.Key
-  - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
       enum.BluespaceHarvesterUiKey.Key:
