@@ -47,7 +47,7 @@ public sealed partial class BluespaceHarvesterMenu : FancyWindow
         {
             var child = new BluespaceHarvesterCategory(category, state.Points >= category.Cost);
 
-            child.CategoryButton.OnButtonDown += (_) =>
+            child.CategoryButton.OnButtonDown += _ =>
             {
                 _owner.SendBuy(category.Type);
             };
