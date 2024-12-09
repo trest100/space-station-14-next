@@ -26,12 +26,12 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
 
     private readonly List<BluespaceHarvesterTap> _taps =
     [
-        new BluespaceHarvesterTap { Level = 0, Visual = BluespaceHarvesterVisuals.Tap0 },
-        new BluespaceHarvesterTap { Level = 1, Visual = BluespaceHarvesterVisuals.Tap1 },
-        new BluespaceHarvesterTap { Level = 5, Visual = BluespaceHarvesterVisuals.Tap2 },
-        new BluespaceHarvesterTap { Level = 10, Visual = BluespaceHarvesterVisuals.Tap3 },
-        new BluespaceHarvesterTap { Level = 15, Visual = BluespaceHarvesterVisuals.Tap4 },
-        new BluespaceHarvesterTap { Level = 20, Visual = BluespaceHarvesterVisuals.Tap5 },
+        new() { Level = 0, Visual = BluespaceHarvesterVisuals.Tap0 },
+        new() { Level = 1, Visual = BluespaceHarvesterVisuals.Tap1 },
+        new() { Level = 5, Visual = BluespaceHarvesterVisuals.Tap2 },
+        new() { Level = 10, Visual = BluespaceHarvesterVisuals.Tap3 },
+        new() { Level = 15, Visual = BluespaceHarvesterVisuals.Tap4 },
+        new() { Level = 20, Visual = BluespaceHarvesterVisuals.Tap5 },
     ];
 
     private float _updateTimer;

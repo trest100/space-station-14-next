@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseSubstation
   id: BluespaceTransitor
-  name: bluespace T.R.A.N.S.I.T.O.R
+  name: bluespace T.R.A.N.S.I.T.O.R.
   components:
   - type: Battery
     startingCharge: 2500000
