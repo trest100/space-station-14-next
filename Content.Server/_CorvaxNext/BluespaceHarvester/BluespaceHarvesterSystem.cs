@@ -11,6 +11,7 @@ using Content.Server.Power.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server._CorvaxNext.BluespaceHarvester;
 
@@ -73,12 +74,7 @@ public sealed class BluespaceHarvesterSystem : EntitySystem
         while (query.MoveNext(out var entityUid, out _))
         {
             var mapId = Transform(entityUid).MapID;
-            if (!dictionary.TryGetValue(mapId, out var list))
-            {
-                dictionary[mapId] = [];
-                list = dictionary[mapId];
-            }
-
+            var list = dictionary.GetOrNew(mapId);
             list.Add(entityUid);
         }
 
