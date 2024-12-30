@@ -23,6 +23,9 @@ public sealed class AutoCryoSleepSystem : EntitySystem
 
     private bool _enabled;
     private TimeSpan _disconnectedTime;
+    private TimeSpan _updateTime;
+
+    private TimeSpan _nextUpdate = TimeSpan.Zero;
 
     public override void Initialize()
     {
@@ -33,14 +36,20 @@ public sealed class AutoCryoSleepSystem : EntitySystem
 
         Subs.CVar(_config, NextVars.AutoCryoSleepEnabled, value => _enabled = value, true);
         Subs.CVar(_config, NextVars.AutoCryoSleepTime, value => _disconnectedTime = TimeSpan.FromSeconds(value), true);
+        Subs.CVar(_config, NextVars.AutoCryoSleepUpdateTime, value => _updateTime = TimeSpan.FromSeconds(value), true);
     }
 
     public override void Update(float frameTime)
     {
+        base.Update(frameTime);
+
         if (!_enabled)
             return;
 
-        base.Update(frameTime);
+        if (_timing.CurTime < _nextUpdate)
+            return;
+
+        _nextUpdate = _timing.CurTime + _updateTime;
 
         var disconnectedQuery = EntityQueryEnumerator<AutoCryoSleepComponent>();
         while (disconnectedQuery.MoveNext(out var uid, out var component))
