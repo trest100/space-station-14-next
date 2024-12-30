@@ -6,6 +6,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._CorvaxNext.NextVars;
 using Content.Shared.Bed.Cryostorage;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Station.Components;
 using Robust.Server.Containers;
 using Robust.Shared.Configuration;
@@ -20,6 +21,7 @@ public sealed class AutoCryoSleepSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private bool _enabled;
     private TimeSpan _disconnectedTime;
@@ -56,6 +58,12 @@ public sealed class AutoCryoSleepSystem : EntitySystem
         {
             if (_timing.CurTime < component.Disconnected + _disconnectedTime)
                 continue;
+
+            if (!_mobState.IsAlive(uid))
+            {
+                RemCompDeferred<AutoCryoSleepComponent>(uid);
+                continue;
+            }
 
             TryCryoSleep(uid, component.EffectId);
         }
