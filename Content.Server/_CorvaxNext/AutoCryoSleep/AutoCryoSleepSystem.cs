@@ -4,44 +4,74 @@
  */
 
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.Afk.Events;
-using Content.Server.Bed.Cryostorage;
-using Content.Server.Mind;
+using Content.Shared._CorvaxNext.NextVars;
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Station.Components;
 using Robust.Server.Containers;
+using Robust.Shared.Configuration;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server._CorvaxNext.AutoCryoSleep;
 
 public sealed class AutoCryoSleepSystem : EntitySystem
 {
+    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly CryostorageSystem _cryostorage = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+
+    private bool _enabled;
+    private TimeSpan _disconnectedTime;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AFKEvent>(OnAFK);
+        SubscribeLocalEvent<AutoCryoSleepableComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<AutoCryoSleepableComponent, PlayerDetachedEvent>(OnPlayerDetached);
+
+        Subs.CVar(_config, NextVars.AutoCryoSleepEnabled, value => _enabled = value, true);
+        Subs.CVar(_config, NextVars.AutoCryoSleepTime, value => _disconnectedTime = TimeSpan.FromSeconds(value), true);
     }
 
-    private void OnAFK(ref AFKEvent ev)
+    public override void Update(float frameTime)
     {
-        if (ev.Session.AttachedEntity is not { } entityUid)
+        if (!_enabled)
             return;
 
-        TryCryoSleep(entityUid);
+        base.Update(frameTime);
+
+        var disconnectedQuery = EntityQueryEnumerator<AutoCryoSleepComponent>();
+        while (disconnectedQuery.MoveNext(out var uid, out var component))
+        {
+            if (_timing.CurTime < component.Disconnected + _disconnectedTime)
+                continue;
+
+            TryCryoSleep(uid, component.EffectId);
+        }
     }
 
-    private void TryCryoSleep(EntityUid targetUid)
+    private void OnPlayerAttached(Entity<AutoCryoSleepableComponent> ent, ref PlayerAttachedEvent args)
+    {
+        if (!_enabled)
+            return;
+
+        RemCompDeferred<AutoCryoSleepComponent>(ent);
+    }
+
+    private void OnPlayerDetached(Entity<AutoCryoSleepableComponent> ent, ref PlayerDetachedEvent args)
+    {
+        if (!_enabled)
+            return;
+
+        var comp = EnsureComp<AutoCryoSleepComponent>(ent);
+        comp.Disconnected = _timing.CurTime;
+    }
+
+    private void TryCryoSleep(EntityUid targetUid, EntProtoId? effectId = null)
     {
         if (HasComp<CryostorageContainedComponent>(targetUid))
-            return;
-
-        if (!_mind.TryGetMind(targetUid, out _, out var mindComponent))
             return;
 
         if (!TryGetStation(targetUid, out var stationUid))
@@ -53,14 +83,15 @@ public sealed class AutoCryoSleepSystem : EntitySystem
                 continue;
 
             // We need only empty cryo sleeps
-            if (container.ContainedEntities.Count != 0)
+            if (!_container.CanInsert(targetUid, container))
                 continue;
 
-            var cryostorageContained = AddComp<CryostorageContainedComponent>(targetUid);
-            cryostorageContained.Cryostorage = cryostorageEntity;
-            cryostorageContained.GracePeriodEndTime = _timing.CurTime;
+            if (effectId is not null)
+                Spawn(effectId, Transform(targetUid).Coordinates);
 
-            _cryostorage.HandleEnterCryostorage((targetUid, cryostorageContained), mindComponent.UserId);
+            _container.Insert(targetUid, container);
+
+            RemCompDeferred<AutoCryoSleepComponent>(targetUid);
         }
     }
 
