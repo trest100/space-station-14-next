@@ -56,7 +56,7 @@ public sealed class AutoCryoSleepSystem : EntitySystem
         var disconnectedQuery = EntityQueryEnumerator<AutoCryoSleepComponent>();
         while (disconnectedQuery.MoveNext(out var uid, out var component))
         {
-            if (_timing.CurTime < component.Disconnected + _disconnectedTime)
+            if (_timing.CurTime - component.Disconnected < _disconnectedTime)
                 continue;
 
             if (!_mobState.IsAlive(uid))
