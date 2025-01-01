@@ -49,7 +49,7 @@ public abstract class SharedNanoChatSystem : EntitySystem
     /// </summary>
     public void SetNumber(Entity<NanoChatCardComponent?> card, uint number)
     {
-        if (!Resolve(card, ref card.Comp))
+        if (!Resolve(card, ref card.Comp) || card.Comp.Number == number)
             return;
 
         card.Comp.Number = number;
