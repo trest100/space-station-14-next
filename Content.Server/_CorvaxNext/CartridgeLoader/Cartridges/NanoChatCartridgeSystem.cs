@@ -334,6 +334,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 // Check if devices are on same map
                 var recipientMap = Transform(receiverUid).MapID;
                 var senderMap = Transform(sender).MapID;
+                
                 // Must be on the same map/station unless long-range is allowed
                 if (!channel.LongRange && recipientMap != senderMap)
                 {
