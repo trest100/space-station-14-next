@@ -116,11 +116,12 @@
         - StationAi
   - type: ContainerContainer
     containers:
-      station_ai_mind_slot: !type:ContainerSlot
+      station_ai_mind_slot:
         # Load-bearing.
         # The issue is verbs check for same transparent container.
         # The alternative is you add a bunch of events trying to override it; we don't even really need the container functionality
         # anyway it's just a quality of life thing.
+        !type:ContainerSlot
         showEnts: True
 
 # Boards
@@ -299,7 +300,7 @@
     layers:
     - state: base
     - state: full
-      map: ["unshaded"]
+      map: [ "unshaded" ]
       shader: unshaded
   - type: Appearance
   - type: GenericVisualizer
@@ -308,6 +309,8 @@
         unshaded:
           Empty: { state: empty }
           Occupied: { state: full }
+  - type: StealTarget # Corvax-Next-Api
+    stealGroup: Ai
   - type: Intellicard
 
 - type: entity
@@ -336,8 +339,7 @@
     container: station_ai_mind_slot
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 100
       behaviors:
       - !type:PlaySoundBehavior
@@ -355,7 +357,7 @@
     layers:
     - state: base
     - state: ai_empty
-      map: ["unshaded"]
+      map: [ "unshaded" ]
       shader: unshaded
   - type: Appearance
   - type: InteractionPopup
@@ -439,6 +441,9 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+  - type: TurretController # Corvax-Next-TurretControl
+    requiredComponents:
+    - type: StationAiHeld
   - type: Tag
     tags:
     - HideContextMenu
@@ -471,7 +476,7 @@
     layers:
     - state: ai_camera
       shader: unshaded
-      map: ["base"]
+      map: [ "base" ]
 
 # The holographic representation of the AI that is projected from a holopad.
 - type: entity
@@ -504,7 +509,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - MMIFilled
+      - MMIFilled
   - type: ItemSlots
     slots:
       cell_slot:
@@ -523,11 +528,11 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain
+      - PositronicBrain
       borg_module:
-        - BorgModuleOperative
-        - BorgModuleL6C
-        - BorgModuleEsword
+      - BorgModuleOperative
+      - BorgModuleL6C
+      - BorgModuleEsword
   - type: ItemSlots
     slots:
       cell_slot:
@@ -539,13 +544,13 @@
   parent: PlayerBorgSyndicateAssaultBattery
   suffix: Ghost role
   components:
-    - type: GhostRole
-      name: ghost-role-information-syndicate-cyborg-assault-name
-      description: ghost-role-information-syndicate-cyborg-description
-      rules: ghost-role-information-silicon-rules
-      raffle:
-        settings: default
-    - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-syndicate-cyborg-assault-name
+    description: ghost-role-information-syndicate-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
 
 - type: entity
   id: PlayerBorgSyndicateSaboteurBattery
@@ -556,11 +561,11 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain
+      - PositronicBrain
       borg_module:
-        - BorgModuleTool
-        - BorgModuleOperative
-        - BorgModuleSyndicateWeapon
+      - BorgModuleTool
+      - BorgModuleOperative
+      - BorgModuleSyndicateWeapon
   - type: ItemSlots
     slots:
       cell_slot:
@@ -572,13 +577,13 @@
   parent: PlayerBorgSyndicateSaboteurBattery
   suffix: Ghost role
   components:
-    - type: GhostRole
-      name: ghost-role-information-syndicate-cyborg-saboteur-name
-      description: ghost-role-information-syndicate-cyborg-description
-      rules: ghost-role-information-silicon-rules
-      raffle:
-        settings: default
-    - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-syndicate-cyborg-saboteur-name
+    description: ghost-role-information-syndicate-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
 
 - type: entity
   name: syndicate invasion borg spawner
@@ -587,9 +592,9 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Structures/Decoration/banner.rsi
-        state: banner_syndicate
+    - state: red
+    - sprite: Structures/Decoration/banner.rsi
+      state: banner_syndicate
   - type: RandomSpawner
     prototypes:
     - PlayerBorgSyndicateAssaultGhostRole

@@ -30,7 +30,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Thump']
+    allowedEmotes: [ 'Thump' ]
   - type: TypingIndicator
     proto: lizard
   - type: Vocal
@@ -58,10 +58,10 @@
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 0.1 #per second, scales with temperature & other constants
+        Cold: 0.1 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 1.5 #per second, scales with temperature & other constants
+        Heat: 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
       301: 0.8
@@ -93,7 +93,7 @@
           32:
             sprite: Corvax/Mobs/Species/displacement.rsi
             state: shoes
-    # Corvax-Displacements-End
+    # Corvax-Digitigrade-End
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -134,4 +134,4 @@
             state: shoes
     # Corvax-Digitigrade-End
 
-#Weh
+    #Weh

@@ -25,6 +25,7 @@
     - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
+  - type: NanoChatCard # Corvax-Next-PDAChat
 
 #IDs with layers
 
@@ -462,6 +463,8 @@
     layers:
     - state: default
     - state: idbrigmedic
+  - type: PresetIdCard # Corvax-Next-Brigmedic
+    job: Brigmedic # Corvax-Next-Brigmedic
 
 - type: entity
   parent: IDCardStandard
@@ -832,6 +835,8 @@
     - NuclearOperative
     - SyndicateAgent
     - Wizard
+  - type: NanoChatCard # Corvax-Next-PDAChat
+    notificationsMuted: true
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener

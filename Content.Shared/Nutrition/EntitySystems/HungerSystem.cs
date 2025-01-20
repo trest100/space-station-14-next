@@ -11,6 +11,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._CorvaxNext.Mood;
+using Robust.Shared.Network;
+using Robust.Shared.Configuration;
+using Content.Shared._CorvaxNext.NextVars;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -24,6 +28,8 @@ public sealed class HungerSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
+    [Dependency] private readonly INetManager _net = default!; // Corvax-Next-Surgery
+    [Dependency] private readonly IConfigurationManager _config = default!; // Corvax-Next-Surgery
 
     [ValidatePrototypeId<SatiationIconPrototype>]
     private const string HungerIconOverfedId = "HungerIconOverfed";
@@ -59,10 +65,9 @@ public sealed class HungerSystem : EntitySystem
 
     private void OnRefreshMovespeed(EntityUid uid, HungerComponent component, RefreshMovementSpeedModifiersEvent args)
     {
-        if (component.CurrentThreshold > HungerThreshold.Starving)
-            return;
-
-        if (_jetpack.IsUserFlying(uid))
+        if (_config.GetCVar(NextVars.MoodEnabled) // Corvax-Next-Surgery
+            || component.CurrentThreshold > HungerThreshold.Starving // Corvax-Next-Surgery
+            || _jetpack.IsUserFlying(uid)) // Corvax-Next-Surgery
             return;
 
         args.ModifySpeed(component.StarvingSlowdownModifier, component.StarvingSlowdownModifier);
@@ -148,7 +153,13 @@ public sealed class HungerSystem : EntitySystem
 
         if (GetMovementThreshold(component.CurrentThreshold) != GetMovementThreshold(component.LastThreshold))
         {
-            _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+            if (!_config.GetCVar(NextVars.MoodEnabled)) // Corvax-Next-Surgery
+                _movementSpeedModifier.RefreshMovementSpeedModifiers(uid); // Corvax-Next-Surgery
+            else if (_net.IsServer) // Corvax-Next-Surgery
+            {
+                var ev = new MoodEffectEvent("Hunger" + component.CurrentThreshold); // Corvax-Next-Surgery
+                RaiseLocalEvent(uid, ev); // Corvax-Next-Surgery
+            }
         }
 
         if (component.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out var alertId))

@@ -15,6 +15,7 @@
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
+  - PlantAnalyzer # Corvax-Next-PlantAnalyzer
 
 - type: technology
   id: CritterMechs
@@ -96,6 +97,7 @@
   - FatExtractorMachineCircuitboard
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+  - MedicalBiofabMachineBoard #Corvax-Next-Surgery
 
 # Tier 2
 
@@ -129,19 +131,9 @@
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
-
-- type: technology
-  id: MechanizedTreatment
-  name: research-technology-mechanized-treatment
-  icon:
-    sprite: Mobs/Silicon/chassis.rsi
-    state: medical
-  discipline: CivilianServices
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-  - BorgModuleAdvancedTreatment
-  - BorgModuleDefibrillator
+  - NTBodyBag # Corvax-Next-AdvancedBodyBags
+  - PrisonerBodyBag # Corvax-Next-AdvancedBodyBags
+  - RadiationBodyBag # Corvax-Next-AdvancedBodyBags
 
 - type: technology
   id: AdvancedCleaning
@@ -227,3 +219,4 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
+  - BluespaceBodyBag # Corvax-Next-AdvancedBodyBags

@@ -126,6 +126,13 @@
   - type: Sharp
   - type: TTS # Corvax-TTS
     voice: Rat
+  # start-_CorvaxNext: surgery
+  - type: SurgeryTarget
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  # end-_CorvaxNext: surgery
 
 - type: entity
   id: MobRatKingBuff
@@ -203,7 +210,11 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
       state: eyes
       shader: unshaded
-
+  - type: SurgeryTarget
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -296,6 +307,9 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: Food
+  - type: Item
+    size: Tiny # _CorvaxNext - Make them edible and pickable.
 
 - type: weightedRandomEntity
   id: RatKingLoot

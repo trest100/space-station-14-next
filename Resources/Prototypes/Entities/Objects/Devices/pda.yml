@@ -81,6 +81,8 @@
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
+      - SecWatchCartridge # Corvax-Next-SecWatch
+      - NanoChatCartridge # Corvax-Next-PDAChat
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -132,6 +134,8 @@
     - NotekeeperCartridge
     - NewsReaderCartridge
     - WantedListCartridge
+    - CrimeAssistCartridge # Corvax-Next-CrimeAssist
+    - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: BasePDA
@@ -145,6 +149,8 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - MedTekCartridge
+      - SecWatchCartridge # Corvax-Next-SecWatch
+      - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: BasePDA
@@ -450,6 +456,13 @@
     accentVColor: "#a23e3e"
   - type: Icon
     state: pda-qm
+  - type: CartridgeLoader # Corvax-Next
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # Corvax-Next-PDAChat
+      - StockTradingCartridge # Corvax-Next-StockTrading
 
 - type: entity
   parent: BasePDA
@@ -494,6 +507,8 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - AstroNavCartridge
+      - SecWatchCartridge # Corvax-Next-SecWatch
+      - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: BasePDA
@@ -624,6 +639,14 @@
     borderColor: "#7C5D00"
   - type: Icon
     state: pda-captain
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - WantedListCartridge
+    - NanoChatCartridge # Corvax-Next-PDAChat
+    - StockTradingCartridge # Corvax-Next-StockTrading
 
 - type: entity
   parent: BasePDA
@@ -842,7 +865,9 @@
     - NotekeeperCartridge
     - NewsReaderCartridge
     - WantedListCartridge
+    - CrimeAssistCartridge # Corvax-Next-CrimeAssist
     - LogProbeCartridge
+    - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: BaseSecurityPDA
@@ -913,6 +938,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
+      - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: CentcomPDA
@@ -936,6 +962,8 @@
       - LogProbeCartridge
       - WantedListCartridge
       - MedTekCartridge
+      - StockTradingCartridge # Corvax-Next-StockTrading
+      - NanoChatCartridge # Corvax-Next-PDAChat
       - AstroNavCartridge
   - type: Tag #  Ignore Chameleon tags
     tags:
@@ -1085,6 +1113,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
+      - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1191,6 +1220,13 @@
     borderColor: "#3f3f74"
   - type: Icon
     state: pda-reporter
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge # Corvax-Next-PDAChat
+    - StockTradingCartridge # Corvax-Next-StockTrading
 
 - type: entity
   parent: BasePDA
@@ -1252,7 +1288,9 @@
     - NotekeeperCartridge
     - NewsReaderCartridge
     - WantedListCartridge
+    - CrimeAssistCartridge # Corvax-Next-CrimeAssist
     - LogProbeCartridge
+    - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1280,6 +1318,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - MedTekCartridge
+    - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: ClownPDA
@@ -1424,6 +1463,7 @@
     preinstalled:
       - NotekeeperCartridge
       - MedTekCartridge
+      - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: BasePDA

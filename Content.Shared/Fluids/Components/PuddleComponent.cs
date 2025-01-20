@@ -21,5 +21,13 @@ namespace Content.Shared.Fluids.Components
 
         [ViewVariables]
         public Entity<SolutionComponent>? Solution;
+
+        // Corvax-Next-Footprints-Start
+        [DataField]
+        public bool AffectsMovement = true;
+
+        [DataField]
+        public bool AffectsSound = true;
+        // Corvax-Next-Footprints-End
     }
 }
