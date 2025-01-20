@@ -400,7 +400,7 @@ namespace Content.Shared.Atmos
         Ammonia = 6,
         NitrousOxide = 7,
         Frezon = 8,
-        //ADT-Gas-Start
+        //NEXT-Gas-Start
         BZ = 9,
         Pluoxium = 10,
         Hydrogen = 11,
@@ -412,6 +412,6 @@ namespace Content.Shared.Atmos
         Halon = 17,
         Helium = 18,
         AntiNoblium = 19
-        //ADT-Gas-End
+        //NEXT-Gas-End
     }
 }

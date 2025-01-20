@@ -42,7 +42,7 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
             }
 
-            if (tile.ExcitedGroup != null) //ADT-Gas
+            if (tile.ExcitedGroup != null) //NEXT-gases
                 ExcitedGroupResetCooldowns(tile.ExcitedGroup);
 
             if ((tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist) || (tile.Hotspot.Volume <= 1f)
@@ -92,14 +92,14 @@ namespace Content.Server.Atmos.EntitySystems
                         if (otherTile == null)
                             continue;
 
-                        if (!otherTile.Hotspot.Valid) //ADT-Gas
-                            HotspotExpose(gridAtmosphere, otherTile, radiatedTemperature, Atmospherics.CellVolume / 4); //ADT-Gas
+                        if (!otherTile.Hotspot.Valid) //NEXT-Gas
+                            HotspotExpose(gridAtmosphere, otherTile, radiatedTemperature, Atmospherics.CellVolume / 4); //NEXT-Gas
                     }
                 }
             }
             else
             {
-                tile.Hotspot.State = (byte)(tile.Hotspot.Volume > Atmospherics.CellVolume * 0.4f ? 2 : 1); //ADT-Gas
+                tile.Hotspot.State = (byte)(tile.Hotspot.Volume > Atmospherics.CellVolume * 0.4f ? 2 : 1); //NEXT-Gas
             }
 
             if (tile.Hotspot.Temperature > tile.MaxFireTemperatureSustained)
@@ -143,7 +143,7 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 if (soh)
                 {
-                    if (plasma > 0.5f && hypernoblium < 5f || tritium > 0.5f && hypernoblium < 5f || hydrogen > 0.5f && hypernoblium < 5f) //ADT-Gas
+                    if (plasma > 0.5f && hypernoblium < 5f || tritium > 0.5f && hypernoblium < 5f || hydrogen > 0.5f && hypernoblium < 5f) //NEXT-Gas
                     {
                         if (tile.Hotspot.Temperature < exposedTemperature)
                             tile.Hotspot.Temperature = exposedTemperature;
@@ -178,7 +178,7 @@ namespace Content.Server.Atmos.EntitySystems
         {
             if (tile.Air == null || !tile.Hotspot.Valid) return;
 
-            tile.Hotspot.Bypassing = tile.Hotspot.SkippedFirstProcess && tile.Hotspot.Volume > tile.Air.Volume * 0.95f; //ADT-Gas
+            tile.Hotspot.Bypassing = tile.Hotspot.SkippedFirstProcess && tile.Hotspot.Volume > tile.Air.Volume * 0.95f; //NEXT-Gas
 
             if (tile.Hotspot.Bypassing)
             {

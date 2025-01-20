@@ -29,7 +29,7 @@ namespace Content.Server.Atmos.Portable
             Gas.Ammonia,
             Gas.NitrousOxide,
             Gas.Frezon,
-            //ADT-Gas-Start
+            //NEXT-Gas-Start
             Gas.BZ,
             Gas.Pluoxium,
             Gas.Hydrogen,
@@ -41,7 +41,7 @@ namespace Content.Server.Atmos.Portable
             Gas.Halon,
             Gas.Helium,
             Gas.AntiNoblium
-            //ADT-Gas-End
+            //NEXT-Gas-End
         };
 
         [ViewVariables(VVAccess.ReadWrite)]

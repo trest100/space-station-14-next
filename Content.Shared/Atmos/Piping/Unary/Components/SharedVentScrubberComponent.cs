@@ -23,7 +23,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             Gas.Ammonia,
             Gas.NitrousOxide,
             Gas.Frezon,
-            //ADT-Gas-Start
+            //NEXT-Gas-Start
             Gas.BZ,
             Gas.Pluoxium,
             Gas.Hydrogen,
@@ -35,7 +35,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             Gas.Halon,
             Gas.Helium,
             Gas.AntiNoblium
-            //ADT-Gas-End
+            //NEXT-Gas-End
         };
 
         // Presets for 'dumb' air alarm modes
